@@ -30,7 +30,8 @@ cd outline-web-manager
 
 echo "Setting up environment..."
 cp .env.dist .env.local
-APP_SECRET="1bb915f10df615fa087cc891dfd9cc5f6be86d79"
+APP_SECRET=$(openssl rand -hex 20)
+echo "Generated APP_SECRET: $APP_SECRET"
 echo "APP_SECRET=$APP_SECRET" >> .env.local
 
 echo "Starting Docker containers..."
