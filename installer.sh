@@ -30,9 +30,17 @@ cd outline-web-manager
 
 echo "Setting up environment..."
 cp .env.dist .env.local
+
+# Generate new APP_SECRET
 APP_SECRET=$(openssl rand -hex 20)
 echo "Generated APP_SECRET: $APP_SECRET"
+
+# Remove any existing APP_SECRET line
+sed -i '/^APP_SECRET=/d' .env.local
+
+# Append the new APP_SECRET
 echo "APP_SECRET=$APP_SECRET" >> .env.local
+
 
 echo "Starting Docker containers..."
 sudo docker-compose up -d
