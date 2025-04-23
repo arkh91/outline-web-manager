@@ -38,4 +38,4 @@ sudo docker-compose up -d
 
 echo "Setup complete!"
 
-#bash <(curl -Ls https://raw.githubusercontent.com/arkh91/public_script_files/main/VPN.sh)
+#bash <(curl -Ls https://raw.githubusercontent.com/arkh91/outline-web-manager/refs/heads/master/installer.sh)
