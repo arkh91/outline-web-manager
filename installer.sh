@@ -4,7 +4,7 @@
 set -e
 
 echo "Updating system..."
-sudo apt update && sudo apt upgrade -y
+sudo apt update -y
 
 echo "Installing dependencies..."
 sudo apt install -y git curl apt-transport-https ca-certificates software-properties-common
