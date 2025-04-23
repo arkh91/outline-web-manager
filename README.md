@@ -40,7 +40,8 @@ git clone git@github.com:edvardpotter/outline-web-manager.git
 ```shell
 cp .env.dist .env.local
 ```
-3. Set `APP_SECRET` in .env.local  
+3. Set `APP_SECRET` in .env.local
+APP_SECRET=$(openssl rand -hex 20)
 ```dotenv
 # For example
 APP_SECRET=1bb915f10df615fa087cc891dfd9cc5f6be86d79
