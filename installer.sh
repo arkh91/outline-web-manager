@@ -25,7 +25,7 @@ sudo curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPO
 sudo chmod +x /usr/local/bin/docker-compose
 
 echo "Cloning repository..."
-git clone git@github.com:edvardpotter/outline-web-manager.git
+git clone https://github.com/arkh91/outline-web-manager.git
 cd outline-web-manager
 
 echo "Setting up environment..."
