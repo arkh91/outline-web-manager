@@ -33,7 +33,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/arkh91/outline-web-manager/ref
 Manual Install
 1. Clone this repository
 ```shell
-git clone [git@github.com:edvardpotter/outline-web-manager.git](https://github.com/arkh91/outline-web-manager.git)
+git clone https://github.com/arkh91/outline-web-manager.git
 ```
 
 2. Copy `.env`
