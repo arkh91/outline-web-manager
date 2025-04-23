@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Exit if any command fails
+set -e
+
+echo "Updating system..."
+sudo apt update && sudo apt upgrade -y
+
+echo "Installing dependencies..."
+sudo apt install -y git curl apt-transport-https ca-certificates software-properties-common
+
+echo "Installing Docker..."
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] \
+  https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io
+
+echo "Installing Docker Compose..."
+DOCKER_COMPOSE_VERSION="1.29.2"
+sudo curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" \
+  -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+echo "Cloning repository..."
+git clone git@github.com:edvardpotter/outline-web-manager.git
+cd outline-web-manager
+
+echo "Setting up environment..."
+cp .env.dist .env.local
+APP_SECRET="1bb915f10df615fa087cc891dfd9cc5f6be86d79"
+echo "APP_SECRET=$APP_SECRET" >> .env.local
+
+echo "Starting Docker containers..."
+sudo docker-compose up -d
+
+echo "Setup complete!"
+
+#bash <(curl -Ls https://raw.githubusercontent.com/arkh91/public_script_files/main/VPN.sh)
