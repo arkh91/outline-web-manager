@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#if not ubuntu exit
+grep -qi "ubuntu" /etc/os-release || { echo "Not Ubuntu. Exiting."; exit 1; }
+
 # Exit if any command fails
 set -e
 
