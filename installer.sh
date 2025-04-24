@@ -45,5 +45,10 @@ echo "Starting Docker containers..."
 sudo docker-compose up -d
 
 echo "Setup complete!"
+echo
+echo "You can access it via:"
+echo "Open http://localhost:8086/admin"
+echo "Email: user@email.local"
+echo "Password: 123456"
 
 #bash <(curl -Ls https://raw.githubusercontent.com/arkh91/outline-web-manager/refs/heads/master/installer.sh)
