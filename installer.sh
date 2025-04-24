@@ -7,7 +7,7 @@ grep -qi "ubuntu" /etc/os-release || { echo "Not Ubuntu. Exiting."; exit 1; }
 set -e
 
 echo "Updating system..."
-sudo apt update -y
+sudo apt update && apt upgrade -y
 
 echo "Installing dependencies..."
 sudo apt install -y git curl apt-transport-https ca-certificates software-properties-common
